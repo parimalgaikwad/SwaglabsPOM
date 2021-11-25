@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import com.swaglabs.generics.BaseMethod;
 
@@ -45,6 +46,7 @@ public class SwaglabsHomePage extends BaseMethod{
 			loginBtn.click();				// clicking on Login button
 			waitExplicit(driver ,applogo);				
 		Assert.assertTrue(applogo.isDisplayed());
+		Reporter.log("Logged in succesfully....!!");
 	}
 	
 	

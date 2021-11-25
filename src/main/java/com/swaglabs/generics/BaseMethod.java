@@ -1,6 +1,7 @@
 package com.swaglabs.generics;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,6 +48,8 @@ public class BaseMethod {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		
 	}
+	
+	
 
 
 }
