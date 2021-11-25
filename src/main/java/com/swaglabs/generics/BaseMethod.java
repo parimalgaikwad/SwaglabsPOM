@@ -1,10 +1,12 @@
 package com.swaglabs.generics;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseMethod {
 	
@@ -23,16 +25,28 @@ public class BaseMethod {
 		sel.selectByIndex(index);
 	}
 	
-	public List<String> webelementsToString(List<WebElement> l)
-	{ 	List<String> s = new ArrayList<String>();
-		for(WebElement e : l)
-			s.add(e.getText());
-		return s;
+	public void waitExplicit(WebDriver driver, WebElement element) {
+		WebDriverWait wait=new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		
 	}
 	
-	public double stringToDouble(String s){
+	public void waitExplicit(WebDriver driver, List<WebElement> list) {
+		WebDriverWait wait=new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOfAllElements(list));
 		
-		return Double.parseDouble(s.substring(1));
 	}
+	
+	public void elementToBeClickable(WebDriver driver,WebElement element) {
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+		
+	}
+	public void waitToBeClickable(WebDriver driver,WebElement element) {
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		
+	}
+
 
 }

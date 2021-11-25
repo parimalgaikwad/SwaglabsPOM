@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.swaglabs.generics.BaseMethod;
 
@@ -18,6 +19,8 @@ public class SwaglabsHomePage extends BaseMethod{
 	private WebElement password;
 	@FindBy (xpath = "//input[@id='login-button']")
 	private WebElement loginBtn;
+	@FindBy (xpath = "//div[@class='app_logo']")
+	private WebElement applogo;//
 
 	
 	
@@ -28,15 +31,20 @@ public class SwaglabsHomePage extends BaseMethod{
 
 	
 	
-	public boolean logoCheck() {
-		
-	return	loginlogo.isDisplayed();
+	public void logoCheck() {
+		waitExplicit(driver , loginlogo);
+	Assert.assertTrue(loginlogo.isDisplayed());
 	}
 	
 	public void login(String usrname , String pwd) {
-		username.sendKeys(usrname);
-		password.sendKeys(pwd);
-		loginBtn.click();
+		waitExplicit(driver , username);
+			username.sendKeys(usrname);     // typing user name
+		waitExplicit(driver , password);	
+			password.sendKeys(pwd);			// typing password
+		waitExplicit(driver , loginBtn);	
+			loginBtn.click();				// clicking on Login button
+			waitExplicit(driver ,applogo);				
+		Assert.assertTrue(applogo.isDisplayed());
 	}
 	
 	

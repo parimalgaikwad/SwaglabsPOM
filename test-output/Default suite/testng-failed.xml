@@ -5,8 +5,8 @@
     <classes>
       <class name="com.swaglabs.test.SwaglabsTest">
         <methods>
-          <include name="doSortPriceHitoLo"/>
           <include name="close"/>
+          <include name="inventory"/>
           <include name="start"/>
           <include name="closeapp"/>
           <include name="openapp"/>
